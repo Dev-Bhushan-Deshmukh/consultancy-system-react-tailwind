@@ -19,6 +19,11 @@ navcolor:'#1d1d24',
         texthighlighter:'#9a17bf',
         textLighter:'#727272'
 
+      },
+      height:{
+barHeight:'10%',
+Heightninet:'90%'
+
       }
     },
   },
