@@ -14,10 +14,11 @@ export default {
 navcolor:'#1d1d24',
         dark:'white',
         highlighter:'#0a0d16',
-        cardcolor:'#161636',
+        cardcolor:'#fcfcfc',
         bgcol:'#e9e9e9',
         texthighlighter:'#9a17bf',
         textLighter:'#727272'
+
       }
     },
   },

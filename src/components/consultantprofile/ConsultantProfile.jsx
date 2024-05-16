@@ -61,12 +61,12 @@ export const ConsultantProfile = () => {
     <div className='  p-3 mt-4 h-4/5 flex-shrink-0  w-full  max-[445px]:w-full   md:w-full  sm:rounded-lg md:rounded-2xl flex flex-wrap  overflow-y-scroll   justify-center items-start gap-3 bg-white '>
     
     
-    {consultancyServices.map((item)=><div className='text-textLighter font-semibold max-[533px]:w-full max-[891px]:w-2/3  max-[1128px]:w-1/3  bg-white border-2 border-slate-100 w-2/5  h-2/5 flex-shrink-0  flex flex-row  items-center'>
+    {consultancyServices.map((item)=><div key={item.categoryName} className='text-textLighter font-semibold max-[533px]:w-full max-[891px]:w-2/3  max-[1128px]:w-1/3  bg-white border-2 border-slate-100 w-2/5  h-2/5 flex-shrink-0  flex flex-row  items-center'>
     <img src={item.img}  className='h-full w-1/2 object-cover' alt="" />
     {item.name}
     <div className='h-full w-1/2 flex flex-col justify-between text-sm'>
       <span className='w-full font-bold  h-1/6 p-1 bg-slate-50'>Bhushan Deshmukh </span>
-      <span className='w-full h-1/6 p-1'>Software Engineer </span>
+      <span className='w-full h-1/6 p-1 text-blue-600'>Software Engineer </span>
       <span className='w-full  h-1/6 p-1'>1.2 years</span>
       <span className='w-full  h-1/6 p-1'>21.</span>
       {/* {item.categoryName} */}
