@@ -1,6 +1,6 @@
 import {createBrowserRouter,RouterProvider} from 'react-router-dom'
 import { Home } from "./components/pages/homepage/Home"
-import { Category } from './components/category/Category'
+import { Category,fetchCategory } from './components/category/Category'
 import { UserProfile } from './components/userProfile/UserProfile'
 import { ConsultantProfile } from './components/consultantprofile/ConsultantProfile'
 import { ConsultantList } from './components/consultantlist/ConsultantList'
@@ -8,19 +8,22 @@ import { Login } from './components/loginpage/login'
 import { Admin } from './components/adminpage/admin'
 function App() {
 let router=createBrowserRouter([
-  {path:'',element:<Login/>},
+  {path:'/',element:<Login/>},
 {path:'home',element:<Home/>, children:[
   
-{index:true,element:<Category/>},
-{path:'user',element:<UserProfile/>},
+{path:'category', element:<Category/>},
+{path:'user',index:true,element:<UserProfile/> },
 {path:'consultant',element:<ConsultantProfile/>},
 {path:'consultantlist',element:<ConsultantList/>},
-{path:'admin',element:<Admin/>},
+{path:'admin',element:<Admin/> },
 
 
 
 
-]}
+],
+errorElement:<p>error !</p>,
+
+}
 
 
 

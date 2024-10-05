@@ -66,7 +66,7 @@ if(!toggle)
 <div className='w-11/12 h-1/3 bg-cardcolor flex justify-start  gap-5'>
 
 
-<img src="https://www.freecodecamp.org/news/content/images/2019/09/jackson_1-1-.jpg" className='h-full w-1/5 object-cover' alt="" />
+<img src='https://miro.medium.com/v2/resize:fit:1024/1*vTSyTeYVlQTwOFZEUkgmNg.jpeg' className='h-full w-1/5 object-cover' alt="" />
 
 
 <div className='h-full w-1/3 flex flex-col justify-between'>

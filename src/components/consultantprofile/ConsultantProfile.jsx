@@ -54,6 +54,7 @@ export const ConsultantProfile = () => {
         description: "Advises clients on real estate investments, property development, property management, market analysis, valuation, and leasing strategies."
     }
 ];
+
   return (
     <div className='h-full   '>
     <Searchbar/>
@@ -90,3 +91,5 @@ export const ConsultantProfile = () => {
         </div>
   )
 }
+
+

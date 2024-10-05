@@ -1,13 +1,15 @@
 import React from 'react'
 import { Searchbar } from '../utility components/search/Searchbar'
+import { useLoaderData, useNavigation } from 'react-router-dom';
 
 export const Category = () => {
-
+    const data=useLoaderData();
+    const navigation=useNavigation();
 
   const consultancyServices = [
     {
         categoryName: "Management Consulting",
-        img:'https://i0.wp.com/financialhotspot.com/wp-content/uploads/2022/02/shutterstock_1503919118.jpg?fit=1200%2C800&ssl=1',
+        img:'https://www.google.com/imgres?q=imaged&imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fcrash-girl-imaged-hd-background-girl-model-smart-hones-normal-cut-girl-queen-girl-imag_88650-3209.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-ai-image%2Fcrash-girl-imaged-hd-background-girl-model-smart-hones-normal-cut-girl-queen-girl-imag_89717109.htm&docid=yfjSGquqzDB9eM&tbnid=kQJavKEZPrNVFM&vet=12ahUKEwiUpuTF-faIAxWWxTgGHesPAVcQM3oECEsQAA..i&w=626&h=626&hcb=2&ved=2ahUKEwiUpuTF-faIAxWWxTgGHesPAVcQM3oECEsQAA',
         description: "Offers advice and solutions to organizations on various aspects of management, including strategy, operations, finance, and human resources."
     },
     {
@@ -58,13 +60,13 @@ export const Category = () => {
 ];
 
   return (
-    <div className='h-full   '>
+    <div className='h-full  flex-shrink-0  bg-slate-100 '>
 <Searchbar/>
+{navigation.state=='loading' && 'loading...'}
+<div className='  p-3 mt-4 h-4/5 flex-shrink-0   w-full  sm:rounded-lg md:rounded-2xl flex flex-wrap  overflow-y-scroll   justify-center items-center gap-3  '>
 
-<div className='  p-3 mt-4 h-4/5 flex-shrink-0  w-full  max-[445px]:w-full   md:w-full  sm:rounded-lg md:rounded-2xl flex flex-wrap  overflow-y-scroll   justify-center items-center gap-3  '>
 
-
-{consultancyServices.map((item)=><div className='text-textLighter font-semibold max-[533px]:w-full max-[891px]:w-2/3  max-[1128px]:w-1/3  bg-white border-2 border-slate-100 w-1/4  h-1/2 flex-shrink-0  flex flex-col  items-center'>
+{consultancyServices.map((item,index)=><div key={index} className='text-textLighter font-semibold max-[416px]:w-full max-[891px]:w-2/5  max-[1128px]:w-1/3  bg-white border-2 border-slate-100 w-1/4  h-1/2 flex-shrink-0  flex flex-col  items-center'>
 <img src={item.img}  className='h-4/5 w-full object-cover' alt="" />
 {item.name}
 <span>{item.categoryName}</span>
@@ -83,3 +85,12 @@ export const Category = () => {
     </div>
   )
 }
+export async function fetchCategory(){
+    const response =await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data=await response.json()
+    console.log('data',data)
+    return null
+    
+    
+    
+    }

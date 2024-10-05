@@ -28,6 +28,7 @@ export const Admin = () => {
       // Example usage
       console.log(indianNames[Math.floor(Math.random() * indianNames.length)]);
       const[updateUser,setUpdateUser]=useState(false)
+      const[updatecategory,setUpdateCategory]=useState(false)
 const[imgData,setImgData]=useState(profile);
     function files(e){
 // e.target.files
@@ -41,7 +42,7 @@ let unselectedOptionStyle=' h-full grid place-content-center w-1/6 text-slate-70
   return (
     <div className='h-full w-full flex flex-col justify-center  items-center'>
 
-<div className='w-11/12 h-barHeight bg-cardcolor flex justify-evenly items-center '>
+<div className='w-full   md:w-11/12 h-barHeight bg-cardcolor flex justify-evenly items-center '>
 
 
 <div  className={active=='users'?selectedOptionStyle:unselectedOptionStyle} onClick={()=>secActive('users')}>User</div>
@@ -52,12 +53,10 @@ let unselectedOptionStyle=' h-full grid place-content-center w-1/6 text-slate-70
 
 
 {active=='users' && 
-<div className='w-full h-5/6  flex justify-evenly items-center' >
+<div className='relative w-full h-5/6  flex justify-evenly items-center' >
 
 
-
-
-<div className='w-1/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
+{ !updateUser && <div className='w-11/12  lg:w-1/2 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Users</h1>  
 
 
@@ -73,9 +72,11 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 
 
 
-</div>
+</div>}
 
-  <div className=' w-2/5 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-center gap-4 '>
+
+
+ {updateUser &&  <div className='absolute bg-white w-11/12   md:w-2/3 lg:w-2/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-center gap-4 '>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Details</h1>   
 <Form className=' flex flex-col  h-Heightninet w-full items-center justify-start gap-3 '>
 
@@ -94,14 +95,14 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 
 </Form>
 
-</div> 
+</div> } 
 
 
 
 </div>}
-{active=='consultants' && <div className='w-full h-5/6  flex justify-evenly items-center' >
+{active=='consultants' && <div className='w-full h-5/6  flex justify-evenly items-center ' >
 
-{!updateUser && <div className='w-1/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
+{<div className='w-2/5 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Requests</h1>  
 
 
@@ -120,7 +121,7 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 
 </div>}
 
-<div className='w-1/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
+<div className='w-2/5 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Consultants</h1>  
 
 
@@ -165,18 +166,17 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 
 
 {active=='category' && 
-<div className='w-full h-5/6  flex justify-evenly items-center' >
+<div className='relative w-full h-5/6  flex justify-evenly items-center' >
 
 
 
-
-<div className='w-1/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
+{!updatecategory && <div className='w-11/12  lg:w-1/2 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-start gap-3 overflow-y-scroll'>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Categories</h1>  
 
 
 {
 indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight flex justify-between items-center pl-1 text-slate-700 font-semibold' key={item}>{item} <span className=' h-full w-1/3 gap-2 flex shrink-0' > 
-<button onClick={()=>setUpdateUser(true)} className='h-full w-1/2 bg-slate-50 '><i class="fa-solid fa-eye"></i></button> <button className='w-1/2 bg-slate-50'><i class="fa-solid fa-trash"></i></button>  </span> </span>)
+<button onClick={()=>setUpdateCategory(true)} className='h-full w-1/2 bg-slate-50 '><i class="fa-solid fa-eye"></i></button> <button className='w-1/2 bg-slate-50'><i class="fa-solid fa-trash"></i></button>  </span> </span>)
 }
 
 
@@ -186,9 +186,9 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 
 
 
-</div>
+</div>}
 
-  <div className=' w-2/5 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-center gap-4 '>
+{updatecategory &&   <div className='absolute bg-white w-11/12   md:w-2/3 lg:w-2/3 border-2 border-slate-50 h-5/6 flex flex-col items-center justify-center gap-4 '>
 <h1 className='text-center font-semibold text-lg text-slate-600'>Details</h1>   
 <Form className=' flex flex-col  h-Heightninet w-full items-center justify-start gap-3 '>
 
@@ -203,11 +203,12 @@ indianNames.map((item)=><span className='w-full bg-white shrink-0 h-barHeight fl
 <span className='w-11/12  h-barHeight flex justify-between'>Location:  <input className='w-2/3 h-full border-2 border-slate-100' /> </span>
 <span className='w-11/12  h-barHeight flex justify-between'>Contact:<input className='w-2/3 h-full border-2 border-slate-100' /> </span>
 <span className='w-11/12  h-barHeight flex justify-between'>Email:  <input className='w-2/3 h-full border-2 border-slate-100' /> </span>
-<button type='' className='w-11/12 h-barHeight bg-orange-500 text-white' onClick={()=>setUpdateUser(false)}>Update</button>
+<button type='' className='w-11/12 h-barHeight bg-orange-500 text-white' onClick={()=>setUpdateCategory(false)}>Update</button>
 
 </Form>
 
 </div> 
+}
 
 
 
