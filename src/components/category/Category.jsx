@@ -1,16 +1,16 @@
 import React from 'react'
 import { Searchbar } from '../utility components/search/Searchbar'
-import { useLoaderData, useNavigation } from 'react-router-dom';
+import { Link, useLoaderData, useNavigation, useParams } from 'react-router-dom';
 
 export const Category = () => {
     const data=useLoaderData();
     const navigation=useNavigation();
-
+   
   const consultancyServices = [
     {
         categoryName: "Management Consulting",
-        img:'https://www.google.com/imgres?q=imaged&imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fcrash-girl-imaged-hd-background-girl-model-smart-hones-normal-cut-girl-queen-girl-imag_88650-3209.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-ai-image%2Fcrash-girl-imaged-hd-background-girl-model-smart-hones-normal-cut-girl-queen-girl-imag_89717109.htm&docid=yfjSGquqzDB9eM&tbnid=kQJavKEZPrNVFM&vet=12ahUKEwiUpuTF-faIAxWWxTgGHesPAVcQM3oECEsQAA..i&w=626&h=626&hcb=2&ved=2ahUKEwiUpuTF-faIAxWWxTgGHesPAVcQM3oECEsQAA',
-        description: "Offers advice and solutions to organizations on various aspects of management, including strategy, operations, finance, and human resources."
+        img:'https://www.onboardmeetings.com/wp-content/uploads/2023/07/Managing-Director-2.jpeg',
+          description: "Offers advice and solutions to organizations on various aspects of management, including strategy, operations, finance, and human resources."
     },
     {
         categoryName: "IT Consulting",
@@ -24,7 +24,7 @@ export const Category = () => {
     },
     {
         categoryName: "Human Resources Consulting",
-        img:'https://www.inventiva.co.in/wp-content/uploads/2023/10/7-2.jpg',
+        img:'https://images.pexels.com/photos/4344860/pexels-photo-4344860.jpeg?cs=srgb&dl=pexels-edmond-dantes-4344860.jpg&fm=jpg',
         description: "Offers HR-related services, including talent acquisition, performance management, organizational development, employee training and development, and HR technology implementation."
     },
     {
@@ -69,7 +69,7 @@ export const Category = () => {
 {consultancyServices.map((item,index)=><div key={index} className='text-textLighter font-semibold max-[416px]:w-full max-[891px]:w-2/5  max-[1128px]:w-1/3  bg-white border-2 border-slate-100 w-1/4  h-1/2 flex-shrink-0  flex flex-col  items-center'>
 <img src={item.img}  className='h-4/5 w-full object-cover' alt="" />
 {item.name}
-<span>{item.categoryName}</span>
+<Link  to ={`/home/consultant/${item.categoryName}`}className='hover:text-red-400'>{item.categoryName}</Link>
 </div>)}    
 
 

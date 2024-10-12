@@ -36,7 +36,7 @@ export const Navbar = ({setToggleNavbar,toggleNavbar}) => {
     
     },
     {name:'consultants',
-      link:"/home/consultant",
+      link:"/home/consultant/all",
       // consultant
     },
     {name:'Admin',
@@ -100,8 +100,8 @@ export const Navbar = ({setToggleNavbar,toggleNavbar}) => {
             variants={navContainer}
     
     
-    className='hover:bg-white max-[355px]:w-full max-[411px]:w-1/2 max-[620px]:w-2/5 max-[1083px]:w-1/3  min-[883px]:bg-sidebarColor  z-10 max-[883px]:absolute bg-yellow-300  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100 block md: h-full w-1/6 '>
-
+    className=' max-[355px]:w-full max-[411px]:w-1/2 max-[620px]:w-2/5 max-[1083px]:w-1/3  min-[883px]:bg-gray-100  z-10 max-[883px]:absolute bg-black  bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-0 border border-gray-100 block md: h-full w-1/6 '>
+{/* hover:bg-white */}
 <span   className='min-[883px]:hidden' onClick={()=>setToggleNavbar(false)}>c</span>
 
 
@@ -115,7 +115,7 @@ export const Navbar = ({setToggleNavbar,toggleNavbar}) => {
       >
         {items.map(item => (<> 
        
-          <motion.li  className=" no-underline hover:none text-orange-600 text-lg decoration-orange-700 decoration-2" variants={navItem} key={item.name}>
+          <motion.li  className=" no-underline hover:none text-gray-600 text-lg decoration-orange-700 decoration-2" variants={navItem} key={item.name}>
           <NavLink  key={item.name} to={item.link}  >{item.name}</NavLink>
           </motion.li>
           </>

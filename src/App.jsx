@@ -12,8 +12,8 @@ let router=createBrowserRouter([
 {path:'home',element:<Home/>, children:[
   
 {path:'category', element:<Category/>},
-{path:'user',index:true,element:<UserProfile/> },
-{path:'consultant',element:<ConsultantProfile/>},
+{path:'user/:id',index:true,element:<UserProfile/> },
+{path:'consultant/:category',element:<ConsultantProfile/>},
 {path:'consultantlist',element:<ConsultantList/>},
 {path:'admin',element:<Admin/> },
 
